@@ -97,13 +97,15 @@ which.max(summary.out$adjr2)
 summary.out$which[2,]
 ```
 ```{r}
-best.model <- lm(Weight~Height+Width,data=perch)
+best.model <- lm(Weight ~ Height + Width,data = perch)
 summary(best.model)
-
+fullup=lm(Weight~.,data= select (perch, - Species))
 ```
 ```{r}
 anova(fullup,best.model)
 ```
+
+The P value is 
 
 ## Inferential Results
 
