@@ -87,6 +87,8 @@ as.data.frame(summary.out$outmat)
 library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
 ```
+
+
 ## Which model is best?
 
 The best model is that which utilizes two variables, Height and Width.
@@ -118,12 +120,15 @@ $H_A$: There is a difference between models 1 and 2 when predicting the weight o
 anova(fullup,best.model)
 ```
 
+We fail to reject the null hypothesis because the p-value is high at 0.879
+
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
-We fail to reject the null hypothesis because the p-value is high at 0.879. There is a difference between the best model which utilizes four variables and the best model that uses two variables.
+
+Based on the automated selection of the variables there is a difference in using a model with two variables verses using one with all of the variables. This was identified through a graphical depiction of the adjusted R-squared value and the p-value. In the case of Roach, we fail to reject the null hypothesis because the p-value associated with the anovas is high at 0.879.  
 
 # Pike
 # Methods
@@ -184,6 +189,8 @@ as.data.frame(summary.out$outmat)
 library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
 ```
+
+
 ## Which model is best?
 
 In the case of Pike, the best model is the model with three variables, Length1 Length 3 and Width, however the best two variable model is Length 1 and Length 3.
@@ -214,13 +221,14 @@ $H_A$: There is a difference between models 1 and 2 when predicting the weight o
 ```{r}
 anova(fullup,best.model)
 ```
-
+According to the anova, we have to reject the null hypothesis because the p-value is low at 0.03091.
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
-We fail to reject the null hypothesis because the p-value is high at 0.9338.
+
+Based on the automated selection of the variables there is a difference in using a model with two variables verses using one with all of the variables. This was identified through a graphical depiction of the adjusted R-squared value and the p-value. According to the anova, we have to reject the null hypothesis because the p-value is low at 0.03091. In terms of Pike fish, there is a difference in which models are better at predicting the weight of the fish.
 
 
 # Roach
@@ -251,6 +259,7 @@ Roach=filter(Fish,Species=="Roach")
 ```{r}
 basicNN <- ggplot(Roach,aes(y=Weight,x=Length1))
 ```
+
 ## Now add in scatterplot
 
 ```{r}
@@ -283,6 +292,10 @@ library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
 ```
 
+## Which model is best?
+
+In the case of Roach, the best model is the model with Length 3 and Width.
+
 ```{r}
 which.max(summary.out$adjr2)
 ```
@@ -309,9 +322,11 @@ $H_A$: There is a difference between models 1 and 2 when predicting the weight o
 anova(fullup,best.model)
 ```
 
+We fail to reject the null hypothesis because the p-value is high at 0.9338 based on the anova test above.
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
-We fail to reject the null hypothesis because the p-value is high at 0.9338 
+
+Based on the automated selection of the variables there is a difference in using a model with two variables verses using one with all of the variables. This was identified through a graphical depiction of the adjusted R-squared value and the p-value. In the case of Roach, we fail to reject the null hypothesis because the p-value associated with the anovas is high at 0.9338.  
